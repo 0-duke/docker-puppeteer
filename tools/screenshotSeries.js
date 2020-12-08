@@ -24,7 +24,7 @@ if (!process.argv[2]) {
 
     console.info('for example:\n');
     console.log('  docker run --shm-size 1G --rm -v /tmp:/screenshots \\');
-    console.log('  alekzonder/puppeteer:latest screenshot \'https://www.google.com\'\n');
+    console.log('  0duke/puppeteer:latest screenshot \'https://www.google.com\'\n');
     process.exit(1);
 }
 
@@ -56,7 +56,9 @@ let filename = `${dateStr}_screenshot_${width}_${height}.png`;
     const browser = await puppeteer.launch({
         args: [
         '--no-sandbox',
-        '--disable-setuid-sandbox'
+        '--disable-setuid-sandbox',
+        '--ignore-certificate-errors',
+        '--ignore-certificate-errors-spki-list'
         ]
     });
 
