@@ -56,7 +56,9 @@ let filename = `full_screenshot_${width}_${height}.png`;
     const browser = await puppeteer.launch({
         args: [
         '--no-sandbox',
-        '--disable-setuid-sandbox'
+        '--disable-setuid-sandbox',
+        '--ignore-certificate-errors',
+        '--ignore-certificate-errors-spki-list'
         ]
     });
 
